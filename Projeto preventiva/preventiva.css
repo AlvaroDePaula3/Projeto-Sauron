@@ -1,0 +1,65 @@
+.seta{
+    width: 20px;
+    height: 20px;
+    border-bottom: 3px solid #9d05a5;
+    border-right: 3px solid #9d05a5;
+    transform:rotate(135deg);
+    animation: andarParaOLado 1s infinite alternate ease-in-out;
+    cursor: pointer;
+    margin-left: 1vw;
+    margin-top: 4vh;
+}
+
+.paginaDaPreventiva{
+    display: flex;
+    justify-content: center;
+}
+.divisoriaDoFormulario
+{
+    display: grid;
+    height: 80vh;
+    width: 30vw;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;    margin-top: 20px;
+    justify-content: center;
+}
+
+h1{
+    color: purple;
+}
+
+.elementosFormulario{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dataNoInput{
+    position:relative;
+    width: 100%;
+    max-width: 300px;
+}
+
+.dataNoInput input[type="date"]
+{
+    width: 100%;
+    padding: 10px 40px 10px 12px;
+    font-size: 16px;
+    border: 1px solid #75178F;
+    border-radius: 6px;
+    outline: none;
+    background-color: #fff;
+    color: black;
+    cursor: pointer;
+}
+
+/* customiza o ícone do calendário em alguns navegadores (Chrome, Opera, Edge, Safari)
+Se for usado no Mozila, ele troca pro ícone padrão do navegador */
+
+.dataNoInput input[type="date"]::webkit-calendar-picker-indicator
+{
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    filter: invert(18%) sepia(18%) saturate(18%) hue-rotate(3361%) brightness(85%) contrast(96%);
+}
