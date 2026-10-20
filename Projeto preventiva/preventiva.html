@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="preventiva.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Preventiva</title>
 </head>
 <body>
@@ -28,13 +31,27 @@
             </div>
             <!-- Data de hoje -->
              <div class="elementosFormulario">
-                <label for="dataDeHoje">Data: </label><br>
-                <input type="datetime" name="dataDeHoje" id="dataDeHoje">                    
+                <label for="dataDeHoje">Data de início: </label><br>
+                <input type="date" name="dataDeHoje" id="dataDeHoje">                    
+             </div>
+             <!-- Data de finalização -->
+              <div class="elementosFormulario">
+                <label for="dataDeHoje">Data de finalização: </label><br>
+                <input type="date" name="dataDeHoje" id="dataDeHoje">                    
              </div>
              <!-- Site-->
               <div class="elementosFormulario">
               <label for="Site"> Site: </label><br>
               <input type="text" name="Site" id="Site">
+              </div>
+              <div>
+                <label for="subtipos"> Modelo: </label><br>
+                <select name="subtipos" id="subtipos">
+                    <option value="subtipo1"> Site 1</option>
+                    <option value="subtipo2"> Site 2</option>
+                    <option value="subtipo3"> Site 3</option>
+                    <option value="subtipo4"> Site 4</option>
+                </select>
               </div>
               <!-- Descrição da atividade -->
                <div class="elementosFormulario">

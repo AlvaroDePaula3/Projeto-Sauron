@@ -16,19 +16,27 @@
 }
 .divisoriaDoFormulario
 {
+    background-color: #ac63b1;
     display: grid;
-    height: 80vh;
+    height: 90vh;
     width: 30vw;
-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;    margin-top: 20px;
     justify-content: center;
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 h1{
-    color: purple;
+    color: rgb(254, 254, 254);
 }
 
 .elementosFormulario{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+input{
+    border-radius: 10px;
+    height: 3vh;
 }
 
 .dataNoInput{
@@ -62,4 +70,16 @@ Se for usado no Mozila, ele troca pro ícone padrão do navegador */
     cursor: pointer;
     font-size: 18px;
     filter: invert(18%) sepia(18%) saturate(18%) hue-rotate(3361%) brightness(85%) contrast(96%);
+}
+
+#subtipos
+{
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .divisoriaDoFormulario{
+        width: 90vw;
+        height: 70vh;
+    }
 }

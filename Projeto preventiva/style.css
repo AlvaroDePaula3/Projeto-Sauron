@@ -9,7 +9,6 @@
 .divSite{
     width: 100%;
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,4 +100,15 @@
     background-color: #6E00A7;
     box-shadow: rgba(186, 45, 196) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(186, 45, 196) 0px 1px 0px inset;
      
+}
+
+@media (max-width: 768px) {
+    .siteBotoes{
+        display: grid;
+        grid-template-columns: repeat(1, 4fr);
+        gap: 10px;
+        border-radius: 10px;
+        width: 50vw;
+        
+    }
 }

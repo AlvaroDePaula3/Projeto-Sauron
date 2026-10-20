@@ -17,3 +17,122 @@ if(siteClicado && inputDoSite)
     inputDoSite.readOnly = true;
 }
 
+//A partir daqui é sobre a tabela da auditoria
+//No caso, essa parte do código envia os dados para a auditoria
+//Como no momento não temos BD, estou testando tudo localmente
+// tudo será armazenado aqui quando o usuário clicar em "Enviar"
+
+const formulario = document.querySelector("form");
+
+//o código abaixo verifica se existe formulário na página
+if(formulario){
+
+    formulario.addEventListener("submit", function(e){
+        //impede o recarregamento da página
+
+        e.preventDefault();
+        const preventiva = {
+
+            //campo nome
+            nome: document.getElementById("nome").value,
+            //campo site
+            site: document.getElementById("Site").value,
+            //primeiro input para data (data início)
+            dataInicio: document.querySelectorAll('input[type="date"]'            
+            )[0].value,
+            //segundo input para data (prazo)
+            dataFinal: document.querySelectorAll('input[type="date"]'                
+            )[1].value,
+
+            //modelo selecionado
+            modelo: document.getElementById("subtipos").value
+};
+
+    let registros = JSON.parse(
+        localStorage.getItem("preventivas")
+    ) || [];
+
+    registros.push(preventiva);
+
+    localStorage.setItem(
+        "preventivas",
+        JSON.stringify(registros)
+    );
+
+    console.log(registros);
+
+    alert("Preventiva registrada!")
+    
+    //se quiser limpar o formulário após salvar, tem o método abaixo
+    formulario.reset();
+});
+
+}
+
+//a partir daqui será com o intuito de carregar dados na tela da auditoria
+window.onload = function(){
+    
+    // procura o tbody da tabela
+    const tbody = document.querySelector("#tabelaPreventivas tbody"
+    );
+
+    //Se não existir tabela, o código é encerrado
+    if(!tbody){
+        return;
+    }
+
+    //A partir daqui, vai recuperar os dados salvos
+
+    let registros = JSON.parse(
+        localStorage.getItem("preventivas")
+    ) || [];
+
+    //Caso precise recriar, o código abaixo vai limpar a tela
+    tbody.innerHTML = "";
+
+    //cria uma linha para cada registro
+    registros.forEach(registro => {
+        
+        const hoje = new Date();
+
+        const dataFinal = new Date(registro.dataFinal);
+
+        //diferença entre hoje e a data final
+        const diferencaDias = Math.ceil(
+            (dataFinal - hoje) / (1000 * 60 * 60 * 24)
+        );
+
+        let corAlarme = "";
+
+        //a cor do alarme vai ser verde se faltar mais de 5 dias
+        if(diferencaDias > 5){
+            corAlarme = "verde";
+        }
+        //se falta de 0 a 5 dias, será amarelo
+        else if(diferencaDias >= 0) {
+            corAlarme = "amarelo";
+        }
+        //Se for menor do que 0 dias, é vermelho
+        else{
+            corAlarme = "vermelho";
+        }
+
+        //criar nova linha
+
+        const linha = document.createElement("tr");
+
+        linha.innerHTML = `
+        <td>${registro.site}</td>
+        <td>${registro.dataInicio}</td>
+        <td>${registro.dataFinal}</td>
+        <td>${diferencaDias}</td>
+        <td>
+            <div class="status ${corAlarme}">
+            </div>
+            </td>
+        `;
+
+        //a linha debaixo adiciona uma linha à tabela
+        tbody.appendChild(linha);
+    });
+};

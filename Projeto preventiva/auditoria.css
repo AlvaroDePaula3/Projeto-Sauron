@@ -1,0 +1,64 @@
+.seta{
+    width: 20px;
+    height: 20px;
+    border-bottom: 3px solid #9d05a5;
+    border-right: 3px solid #9d05a5;
+    transform:rotate(135deg);
+    animation: andarParaOLado 1s infinite alternate ease-in-out;
+    cursor: pointer;
+    margin-left: 1vw;
+    margin-top: 4vh;
+}
+
+.nomeDivisoriaAuditoria{
+    font-family: 'Varela Round', sans-serif;
+}
+
+.tabelaContainer{
+    width: 90vw;
+    margin-top: 20px;
+}
+
+#tabelaPreventivas{
+    width: 100vw;
+    border-collapse: collapse;
+    background-color: rgb(255, 255, 255);
+}
+
+#tabelaPreventivas th{
+    background-color: #ac63b1;
+    color: white;
+    padding: 15px;
+}
+
+#tabelaPreventivas th,
+#tabelasPreventivas td{
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#tabelaPreventivas tbody tr:hover{
+    background-color: #f4f4f4;
+}
+
+/* css do alarme 
+*/
+
+.status{
+    width:20px;
+    height:20px;
+    border-radius: 50%;
+    margin:auto;
+}
+
+.verde{
+    background-color: #28a745;
+}
+
+.amarelo{
+    background-color: #ffc107;
+}
+
+.vermelho{
+    background-color:#dc3545;
+}
