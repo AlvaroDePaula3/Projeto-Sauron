@@ -45,7 +45,10 @@ if(formulario){
             )[1].value,
 
             //modelo selecionado
-            modelo: document.getElementById("subtipos").value
+            modelo: document.getElementById("subtipos").value,
+
+            //define se está concluído ou não (é com a flag)
+            concluida:false
 };
 
     let registros = JSON.parse(
@@ -91,21 +94,26 @@ window.onload = function(){
     tbody.innerHTML = "";
 
     //cria uma linha para cada registro
-    registros.forEach(registro => {
+    registros.forEach((registro, index) => {
         
         const hoje = new Date();
 
         const dataFinal = new Date(registro.dataFinal);
 
         //diferença entre hoje e a data final
-        const diferencaDias = Math.ceil(
+        let diferencaDias = Math.ceil(
             (dataFinal - hoje) / (1000 * 60 * 60 * 24)
         );
 
         let corAlarme = "";
 
+        if(registro.concluida)
+        {
+            corAlarme = "concluido";
+            diferencaDias = "Finalizado";
+        }
         //a cor do alarme vai ser verde se faltar mais de 5 dias
-        if(diferencaDias > 5){
+        else if(diferencaDias > 5){
             corAlarme = "verde";
         }
         //se falta de 0 a 5 dias, será amarelo
@@ -127,12 +135,41 @@ window.onload = function(){
         <td>${registro.dataFinal}</td>
         <td>${diferencaDias}</td>
         <td>
-            <div class="status ${corAlarme}">
-            </div>
-            </td>
+            <div class="status ${corAlarme}"></div>
+        </td>
+        <td>
+            <input 
+                type="checkbox"
+                class="checkConclusao"
+                data-index="${index}"
+                ${registro.concluida? "checked" : ""}
+                >
+        </td>
         `;
 
         //a linha debaixo adiciona uma linha à tabela
         tbody.appendChild(linha);
     });
+
+    //define todo o evento das checkbox
+    document.querySelectorAll(".checkConclusao").forEach(check => {
+            //"Escuta" todas as alterações
+            check.addEventListener("change", function(){
+
+                //descobre qual linha foi clicada
+                const index = this.dataset.index;
+
+                //a linha debaixo atualiza o registro
+                registros[index].concluida = this.checked;
+
+                //salva novamente
+                localStorage.setItem(
+                    "preventivas",
+                    JSON.stringify(registros)
+                );
+
+                //recarrega a página automaticamente após a marcação (ou desmarcador do checkbox)
+                location.reload();
+            });
+        });
 };
