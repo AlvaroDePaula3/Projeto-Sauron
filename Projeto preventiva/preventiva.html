@@ -21,42 +21,55 @@
         <form action="/formulários-preventiva/" method="post">
             <!-- Nome do colaborador-->
             <div class="elementosFormulario">
-                <label for="nome">Nome: </label><br>
+                <label for="nome">Nome: </label>
                 <input type="text" id="nome" name="nome" required>
             </div>
             <!-- Matrícula do colaborador -->
             <div class="elementosFormulario">
-                    <label for="matricula">Matrícula: </label><br>
+                    <label for="matricula">Matrícula: </label>
                     <input type="text" id="matricula" name="matricula" required>                
             </div>
+
             <!-- Data de hoje -->
-             <div class="elementosFormulario">
-                <label for="dataDeHoje">Data de início: </label><br>
-                <input type="date" name="dataDeHoje" id="dataDeHoje">                    
-             </div>
-             <!-- Data de finalização -->
-              <div class="elementosFormulario">
-                <label for="dataDeHoje">Data de finalização: </label><br>
-                <input type="date" name="dataDeHoje" id="dataDeHoje">                    
-             </div>
+            <div class="elementosFormulario">
+                <label for="dataDeHoje">Data de hoje: </label>
+                <input type="date" name="dataDeHoje" id="dataDeHoje" readonly> 
+            </div>
+
+            <!-- Data de finalização-->
+            <div class="elementosFormulario">
+                <label for="dataFinal">Data do prazo: </label>
+                <input type="date" name="dataFinal" id="dataFinal"> 
+            </div>
              <!-- Site-->
               <div class="elementosFormulario">
-              <label for="Site"> Site: </label><br>
+              <label for="Site"> Site: </label>
               <input type="text" name="Site" id="Site">
               </div>
               <div>
-                <label for="subtipos"> Modelo: </label><br>
+                <label for="subtipos"> Modelo: </label>
                 <select name="subtipos" id="subtipos">
                     <option value="subtipo1"> Site 1</option>
                     <option value="subtipo2"> Site 2</option>
                     <option value="subtipo3"> Site 3</option>
                     <option value="subtipo4"> Site 4</option>
+                    <option value="subtipo4"> Site 5</option>
+
                 </select>
               </div>
               <!-- Descrição da atividade -->
                <div class="elementosFormulario">
-               <label for="descricao"> Descrição: </label><br>
+               <label for="descricao"> Descrição: </label>
                <textarea type="text" name="descricao" rows="6" required></textarea>
+               </div>
+
+               <!-- Galeria de Fotos -->
+               <div class="elementosFormulario areaGaleria">
+                    <label for="fotos">Anexar Fotos: </label>
+                    <input type="file" id="fotos" name="fotos" accept="image/*" multiple>
+                    <div class="previewFotos" id="previewFotos">
+                        <p> Nenhuma foto selecionada </p>
+                    </div>            
                </div>
              <!-- Botão de enviar -->
               <div>

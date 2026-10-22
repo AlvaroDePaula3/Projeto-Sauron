@@ -1,3 +1,21 @@
+
+document.addEventListener("DOMContentLoaded", function() {
+    //Essa parte do código corresponde a parte da preventiva
+    //Funcionalidade: Preencher a Data de Início com o dia de hoje
+    const inputDataInicio = document.getElementById('dataDeHoje');
+    
+    if(inputDataInicio){
+        const hoje = new Date();
+    
+        const dia = String(hoje.getDate()).padStart(2, '0');
+        const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+        const ano = hoje.getFullYear();
+    
+        inputDataInicio.value = `${ano}-${mes}-${dia}`;
+    }
+});
+
+
 //URLSearchParams é um método em JS que facilita a leitura dos dados que serão pegos pelo 
 //'window.location.search', o window.location.search pega tudo que vem depois da ? na URL
 const parametrosUrl = new URLSearchParams(window.location.search);
@@ -38,7 +56,7 @@ if(formulario){
             //campo site
             site: document.getElementById("Site").value,
             //primeiro input para data (data início)
-            dataInicio: document.querySelectorAll('input[type="date"]'            
+            dataDeHoje: document.querySelectorAll('input[type="date"]'            
             )[0].value,
             //segundo input para data (prazo)
             dataFinal: document.querySelectorAll('input[type="date"]'                
@@ -131,12 +149,14 @@ window.onload = function(){
 
         linha.innerHTML = `
         <td>${registro.site}</td>
-        <td>${registro.dataInicio}</td>
+        <td>${registro.dataDeHoje}</td>
         <td>${registro.dataFinal}</td>
         <td>${diferencaDias}</td>
         <td>
             <div class="status ${corAlarme}"></div>
         </td>
+        <td>
+            <button class="btnFotos" onclick="alert('Abrir galeria do site: ${registro.site}')> Ver </button>
         <td>
             <input 
                 type="checkbox"

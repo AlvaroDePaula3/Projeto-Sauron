@@ -13,30 +13,121 @@
 .paginaDaPreventiva{
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f5f7;
+    padding:20px;
 }
+
 .divisoriaDoFormulario
 {
-    background-color: #ac63b1;
-    display: grid;
-    height: 90vh;
-    width: 30vw;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;    margin-top: 20px;
-    justify-content: center;
-    border-radius: 20px;
+    background-color: #ffffff;
+    width:100%;
+    max-width:900px;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
 }
 
-h1{
-    color: rgb(254, 254, 254);
-}
-
-.elementosFormulario{
+.divisoriaDoFormulario h1{
+    color: #660099;
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
     font-family: 'Poppins', sans-serif;
 }
 
-input{
-    border-radius: 10px;
-    height: 3vh;
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+}
+
+.elementosFormulario:nth-child(5),
+.areaGaleria,
+form div:last-child
+{
+    grid-column: span 2;
+}
+
+.elementosFormulario label
+{
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea
+{
+    width:100%;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background-color: #fafafa;
+    color: #333;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus
+{
+    border-color: #9d05a5;
+    background-color:#ffffff;
+    box-shadow:0 0 0 3px rgba(157, 5, 165, 0.15);
+}
+
+/* todos os inputs de "somente leitura" se tornam bloqueados */
+input[readonly]
+{
+    background-color:#ececec;
+    color: #777;
+    cursor: not-allowed;
+    border-color: #dcdcdc;
+}
+
+/* estilo da área para enviar fotos */
+.previewFotos{
+    margin-top: 10px;
+    padding: 20px;
+    border: 2px dashed #dcdcdc;
+    border-radius: 8px;
+    background-color: #fafafa;
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+}
+
+/* botão de envio das fotos */
+button[type="submit"]{
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: #75178F;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+button[type = "submit"]:hover
+{
+    background-color: #9d05a5;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 15px rgba(157, 5, 165, 0.3);
 }
 
 .dataNoInput{
@@ -78,8 +169,17 @@ Se for usado no Mozila, ele troca pro ícone padrão do navegador */
 }
 
 @media (max-width: 768px) {
-    .divisoriaDoFormulario{
-        width: 90vw;
-        height: 70vh;
+    form{
+        grid-template-columns: 1fr;
+    }
+
+    .elementosFormulario:nth-child(5),
+    .areaGaleria,
+    form div:last-child{
+        grid-column: span 1;
+    }
+
+    .divisoriaDoFormulario {
+        padding: 20px;
     }
 }

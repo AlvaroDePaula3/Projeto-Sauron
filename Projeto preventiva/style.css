@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
 /* Centraliza todo o conteúdo da página */
@@ -12,39 +13,78 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 20px;
+
+    /* Abaixo será um fundo branco com bolinhas cinzas uniformes por todo o fundo) */
+    /*
+    background-color:#f9fafc;
+    background-image: radial-gradient(#d1d5db 1.5px, transparent 1.5px);
+    background-size: 25px 25px;
+    */
+
 }
+
+/*Abaixo terá um fundo mais "Vivo"*/
+body{
+    background-color: #f4f5f7;
+    position:relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+.divSite::before,
+.divSite::after
+{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(100px);
+}
+
+.divSite::before
+{
+    top:-100px;
+    left: -100px;
+    width: 600px;
+    height: 600px;
+    background-color: rgba(102, 0, 153, 0.25);
+}
+/* Aqui acaba o código do fundo mais "Vivo" */
 
 /* Grid principal contendo os 4 cards */
 .siteBotoes{
 
     list-style: none;
-
     display: grid;
-
     /* Cria 4 colunas */
     grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-
+    gap: 15px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
 }
 
 /* Cada card individual */
 .botoesIndividualmente{
 
-    background-color: #f5f5f5;
-    border: 1px solid #dcdcdc;
-    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
     padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.04);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.botoesIndividualmente:hover{
+    transform: scale(1.05) translateY(-8px);
+    border-color: rgba(168, 0, 255, 0.4);
+    box-shadow:
+        0px 15px 30px rgba(168, 0, 255, 0.25),
+        0px 0px 15px rgba(168, 0, 255, 0.15),
+        0px 0px 50px rgba(168, 0, 255, 0.1);    
 }
 
 /* Área da imagem + texto */
@@ -59,8 +99,8 @@
 /* Imagem do site */
 .cabecalhoCard img{
 
-    width: 80px;
-    height: 80px;
+    width: 55px;
+    height: 55px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -84,22 +124,24 @@
 /* Estilização dos botões */
 .botaoPreventiva{
 
-    height: 45px;
+    height: 38px;
     width: 100%;
     border: none;
     border-radius: 6px;
-    background-color: #75178F;
+    background-color: #660099;
     color: white;
+    font-weight: 600;
+    font-size:13px;
     cursor: pointer;
-    transition: 0.3s;
+    transition:all 0.3s ease;
 }
 
 /* Efeito ao passar o mouse */
 .botaoPreventiva:hover{
 
-    background-color: #6E00A7;
-    box-shadow: rgba(186, 45, 196) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(186, 45, 196) 0px 1px 0px inset;
-     
+    background-color: #a800ff;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 15px rgba(168, 0, 255, 0.4);     
 }
 
 @media (max-width: 768px) {

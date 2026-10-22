@@ -6,9 +6,11 @@
     <title> Sites Vivo</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./imagens/boneco da vivo.png" type="image/x-icon">
+    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap]
+    (https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap)%22 
+    rel="stylesheet">
 </head>
 <body>
-
     <!-- Container principal -->
     <div class="divSite">
 
@@ -20,7 +22,7 @@
 
                 <!-- Cabeçalho do card -->
                 <div class="cabecalhoCard">
-                    img/site1.png
+                    <img src="./imagens/Jóia.png" alt="joia">
                     <h5>Site 1</h5>
                 </div>
 
@@ -45,7 +47,7 @@
             <li class="botoesIndividualmente">
 
                 <div class="cabecalhoCard">
-                    img/site2.png
+                    <img src="./imagens/king.png" alt="coroa">
                     <h5>Site 2</h5>
                 </div>
 
@@ -64,7 +66,7 @@
             <li class="botoesIndividualmente">
 
                 <div class="cabecalhoCard">
-                    img/site3.png
+                    <img src="./imagens/anel.png" alt="">
                     <h5>Site 3</h5>
                 </div>
 
@@ -83,7 +85,7 @@
             <li class="botoesIndividualmente">
 
                 <div class="cabecalhoCard">
-                    <img src="img/site4.png"></img>          
+                    <img src="imagens/outros.png"></img>          
                      <h5>Site 4</h5>
                 </div>
 
@@ -102,5 +104,32 @@
 
     </div>
     <script src="script.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+           // 1. Puxa os dados salvos da Auditoria
+           let registros = JSON.parse(localStorage.getItem("preventivas")) || [];
+           
+           // 2. Conta quantos sites únicos já receberam preventiva
+           let sitesFeitos = new Set(registros.map(reg => reg.site)).size;
+           
+           // 3. Define o total de sites na sua aplicação (Ex: 4 cards)
+           const totalDeSites = 100; 
+           
+           // 4. Calcula a porcentagem
+           let porcentagem = Math.round((sitesFeitos / totalDeSites) * 100);
+           
+           // 5. Atualiza TODOS os botões de preventiva na tela inicial
+           const botoesPreventiva = document.querySelectorAll('.botaoPreventiva');
+           
+           botoesPreventiva.forEach(botao => {
+               // Se o texto original do botão for "Preventiva"
+               if(botao.textContent.trim() === "Preventiva") {
+                   // Adiciona o texto de status
+                   botao.innerHTML = `Preventiva <span style="font-size: 11px; opacity: 0.8; display: block;">${sitesFeitos}/${totalDeSites} concluídos (${porcentagem}%)</span>`;
+               }
+           });
+        });
+        </script>
 </body>
 </html>
