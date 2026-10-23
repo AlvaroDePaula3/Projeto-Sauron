@@ -109,7 +109,7 @@ input[readonly]
 }
 
 /* botão de envio das fotos */
-button[type="submit"]{
+.laudo, button[type="submit"]{
     width: 100%;
     padding: 15px;
     font-size: 16px;
@@ -123,7 +123,7 @@ button[type="submit"]{
     margin-top: 15px;
 }
 
-button[type = "submit"]:hover
+.laudo:hover, button[type = "submit"]:hover
 {
     background-color: #9d05a5;
     transform: translateY(-2px);

@@ -156,7 +156,8 @@ window.onload = function(){
             <div class="status ${corAlarme}"></div>
         </td>
         <td>
-            <button class="btnFotos" onclick="alert('Abrir galeria do site: ${registro.site}')> Ver </button>
+            <button class="btnFotos" onclick="alert('Abrir galeria do site: ${registro.site}')"> Ver </button>
+        </td>
         <td>
             <input 
                 type="checkbox"

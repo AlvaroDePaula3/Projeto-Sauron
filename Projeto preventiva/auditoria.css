@@ -54,7 +54,7 @@ body{
     font-weight: 600;
     padding: 15px;
     border-bottom: 2px solid #eaeaea;
-    text-align: center;
+    text-align: left;
 }
 
 #tabelasPreventivas td{
@@ -97,6 +97,32 @@ body{
 .vermelho{
     background-color:#dc3545;
     box-shadow: 0 0 8px rgba(220, 53, 69, 0.4);
+}
+
+.btnFotos{
+    background-color: transparent;
+    color: #660099;
+    border: 1px solid #660099;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.btnFotos:hover{
+    background-color: #660099;
+    color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(102, 0, 153, 0.2);
+    transform: translateY(-1px);
+}
+
+.btnFotos:active{
+    transform: translateY(1px);
 }
 
 @media (max-width: 768px)
